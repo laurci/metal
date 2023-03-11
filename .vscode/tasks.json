@@ -1,0 +1,26 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build TARGET & flash",
+			"type": "shell",
+			"command": "cd demo/wheely/poc_pico_fw/build; make -j20; cp application.uf2 /media/${USER}/RPI-RP2/application.u2f",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Build",
+			"type": "shell",
+			"command": "cd demo/wheely/poc_pico_fw/build; make -j20",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Clean Build",
+			"type": "shell",
+			"command": "cd demo/wheely/poc_pico_fw/build; rm -rf *; cmake ..; make -j20",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+	]
+}

@@ -1,0 +1,13 @@
+# Target labels
+ PioasmBuild
+# Source files and their labels
+/home/radon/Documents/work/Projects/TBH-2023/metal/demo/wheely/poc_pico_fw/build/pico-sdk/src/rp2_common/cyw43_driver/CMakeFiles/PioasmBuild
+/home/radon/Documents/work/Projects/TBH-2023/metal/demo/wheely/poc_pico_fw/build/pico-sdk/src/rp2_common/cyw43_driver/CMakeFiles/PioasmBuild.rule
+/home/radon/Documents/work/Projects/TBH-2023/metal/demo/wheely/poc_pico_fw/build/pico-sdk/src/rp2_common/cyw43_driver/CMakeFiles/PioasmBuild-complete.rule
+/home/radon/Documents/work/Projects/TBH-2023/metal/demo/wheely/poc_pico_fw/build/pico-sdk/src/rp2_common/cyw43_driver/pioasm/src/PioasmBuild-stamp/PioasmBuild-build.rule
+/home/radon/Documents/work/Projects/TBH-2023/metal/demo/wheely/poc_pico_fw/build/pico-sdk/src/rp2_common/cyw43_driver/pioasm/src/PioasmBuild-stamp/PioasmBuild-configure.rule
+/home/radon/Documents/work/Projects/TBH-2023/metal/demo/wheely/poc_pico_fw/build/pico-sdk/src/rp2_common/cyw43_driver/pioasm/src/PioasmBuild-stamp/PioasmBuild-download.rule
+/home/radon/Documents/work/Projects/TBH-2023/metal/demo/wheely/poc_pico_fw/build/pico-sdk/src/rp2_common/cyw43_driver/pioasm/src/PioasmBuild-stamp/PioasmBuild-install.rule
+/home/radon/Documents/work/Projects/TBH-2023/metal/demo/wheely/poc_pico_fw/build/pico-sdk/src/rp2_common/cyw43_driver/pioasm/src/PioasmBuild-stamp/PioasmBuild-mkdir.rule
+/home/radon/Documents/work/Projects/TBH-2023/metal/demo/wheely/poc_pico_fw/build/pico-sdk/src/rp2_common/cyw43_driver/pioasm/src/PioasmBuild-stamp/PioasmBuild-patch.rule
+/home/radon/Documents/work/Projects/TBH-2023/metal/demo/wheely/poc_pico_fw/build/pico-sdk/src/rp2_common/cyw43_driver/pioasm/src/PioasmBuild-stamp/PioasmBuild-update.rule
