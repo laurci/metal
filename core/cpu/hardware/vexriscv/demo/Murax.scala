@@ -528,8 +528,7 @@ object MuraxWithRamInit{
 
 object Murax_arty{
   def main(args: Array[String]) {
-    val hex = "fw/target/riscv32imac-unknown-none-elf/release/fw.bin"
-    // val hex = "src/main/c/murax/hello_world/build/hello_world.hex"
+    val hex = "src/main/c/murax/hello_world/build/hello_world.hex"
     SpinalVerilog(Murax(MuraxConfig.default(false).copy(coreFrequency = 100 MHz,onChipRamSize = 32 kB, onChipRamHexFile = hex)))
   }
 }

@@ -19,6 +19,7 @@ case class top() extends Component {
         new PcManagerSimplePlugin(0x00000000l, false),
         new IBusSimplePlugin(
             resetVector = 0x00000000l,
+            compressedGen = true,
             cmdForkOnSecondStage = true,
             cmdForkPersistence  = true
         ),
@@ -34,6 +35,8 @@ case class top() extends Component {
             zeroBoot = true
         ),
         new IntAluPlugin,
+        new MulPlugin,
+        new DivPlugin,
         new SrcPlugin(
             separatedAddSub = false,
             executeInsertion = false
@@ -51,7 +54,7 @@ case class top() extends Component {
         ),
         new CsrPlugin(
           config = CsrPluginConfig(
-            catchIllegalAccess = true,
+            catchIllegalAccess = false,
             mvendorid      = null,
             marchid        = null,
             mimpid         = null,
@@ -67,7 +70,7 @@ case class top() extends Component {
             mcycleAccess   = CsrAccess.NONE,
             minstretAccess = CsrAccess.NONE,
             ecallGen       = false,
-            wfiGenAsWait         = false,
+            wfiGenAsWait   = false,
             ucycleAccess   = CsrAccess.NONE
           )
         )
@@ -75,9 +78,10 @@ case class top() extends Component {
 
     val resetCtrlDomain = ClockDomain.external(
         "",
-        ClockDomainConfig(resetKind=BOOT),
+        ClockDomainConfig(resetKind=BOOT)
     )
 
+    // AXI spec requires a long reset
     val resetCtrl = new ClockingArea(resetCtrlDomain) {
         val systemReset = RegInit(True)
         val resetCounter = RegInit(U"6'h0")
@@ -123,7 +127,7 @@ case class top() extends Component {
         val axiCrossbar = Axi4CrossbarFactory()
         axiCrossbar.addSlaves(
             ram.io.axi       -> (0x00000000L, 4 kB),
-            apbBridge.io.axi -> (0x10000000L, 1 MB)
+            apbBridge.io.axi -> (0x10000000L,   1 MB)
         )
 
         axiCrossbar.addConnections(
@@ -136,7 +140,7 @@ case class top() extends Component {
         val ledReg = Apb3SlaveFactory(apbBridge.io.apb)
             .createReadWrite(Bits(4 bits), 0x10000000L, 0)
         io.user_leds := ledReg
-    }   
-
+    }
+  
     noIoPrefix()
 }

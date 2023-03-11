@@ -2,6 +2,7 @@
 
 *.log
 
+*.hex
 *.bin
 *.v
 *.o

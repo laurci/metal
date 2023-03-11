@@ -15,3 +15,7 @@ demo-hello-world-asm:
 demo-loop-asm:
 	cd demo/loop-asm; make build info
 	cd core/cpu; make bin_path="${current_dir}/demo/loop-asm/loop.bin" generate
+
+demo-bare:
+	cd demo/bare; cargo build --release; cargo make objcopy
+	cd core/cpu; make bin_path="${current_dir}/demo/bare/target/riscv32imac-unknown-none-elf/release/bare.bin" generate
