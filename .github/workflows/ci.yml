@@ -7,11 +7,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: olafurpg/setup-scala@v11
-      - name: Setup Rust RiscV target
-        run: rustup target add riscv32imac-unknown-none-elf
       - name: Setup GNU RiscV toolchain
         run:  sudo apt install -y gcc-riscv64-unknown-elf
       - name: Compile rust source
-        run: cd demo/bare; cargo build --release
+        run: cd demo/bare; rustup target add riscv32imac-unknown-none-elf; cargo build --release
+      
       # - name: Compile
       #   run: sbt compile
