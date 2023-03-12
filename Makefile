@@ -24,6 +24,8 @@ demo-empty:
 	cd demo/empty; cargo build --release; cargo make objcopy
 	cd core/cpu; make bin_path="${current_dir}/demo/empty/target/riscv32imac-unknown-none-elf/release/empty.bin" generate
 
+
+
 demo-wheely:
 	cd demo/wheely/app; cargo build --release; cargo make objcopy
 	cd core/cpu; make bin_path="${current_dir}/demo/wheely/app/target/riscv32imac-unknown-none-elf/release/wheely.bin" generate
