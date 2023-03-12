@@ -10,7 +10,7 @@ jobs:
       - name: Setup GNU RiscV toolchain
         run:  sudo apt install -y gcc-riscv64-unknown-elf
       - name: Add Rust RiscV target
-        run: cd demo/bare; rustup target add riscv32imac-unknown-none-elf
+        run: cd demo/bare; rustup target add riscv32imac-unknown-none-elf; cargo install cargo-make
       - name: Build test project
         run: make demo-bare
       
