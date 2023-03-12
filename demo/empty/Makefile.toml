@@ -1,0 +1,22 @@
+[tasks.strip]
+command = "riscv64-unknown-elf-strip"
+args= [
+    "target/riscv32imac-unknown-none-elf/release/empty",
+]
+
+[tasks.objcopy]
+command = "riscv64-unknown-elf-objcopy"
+args= [
+    "-O", "binary",
+    "target/riscv32imac-unknown-none-elf/release/empty",
+    "target/riscv32imac-unknown-none-elf/release/empty.bin"
+
+]
+dependencies = ["strip"]
+
+[tasks.objdump]
+command="riscv64-unknown-elf-objdump"
+args = [
+    "-d",
+    "target/riscv32imac-unknown-none-elf/release/empty"
+]

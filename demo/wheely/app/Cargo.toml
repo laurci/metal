@@ -1,0 +1,23 @@
+[package]
+name = "wheely"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+riscv-rt = "0.6.1"
+panic-halt = "0.2.0"
+metal = { path = "../../../core/lib/metal" }
+metal-std = { path = "../../../core/lib/metal-std" }
+
+[build-dependencies]
+metal-build = { path = "../../../core/lib/metal-build" }
+
+[[bin]]
+name = "wheely"
+test = false
+bench = false
+
+[profile.release]
+codegen-units = 1
+debug = true
+lto = true
