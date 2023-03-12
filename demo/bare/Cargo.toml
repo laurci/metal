@@ -6,6 +6,11 @@ edition = "2021"
 [dependencies]
 riscv-rt = "0.6.1"
 panic-halt = "0.2.0"
+metal = { path = "../../core/lib/metal" }
+metal-std = { path = "../../core/lib/metal-std" }
+
+[build-dependencies]
+metal-build = { path = "../../core/lib/metal-build" }
 
 [[bin]]
 name = "bare"

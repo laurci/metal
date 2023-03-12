@@ -1,0 +1,7 @@
+[workspace]
+
+members = [
+    "metal",
+    "metal-build",
+    "metal-std",
+]

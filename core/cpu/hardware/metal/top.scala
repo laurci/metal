@@ -9,6 +9,8 @@ import vexriscv._
 import vexriscv.plugin._
 
 import scala.collection.mutable.ArrayBuffer
+import metal.generated.GeneratedController
+import spinal.lib.com.uart._
 
 case class top() extends Component {
     val io = new Bundle {
@@ -127,7 +129,7 @@ case class top() extends Component {
         val axiCrossbar = Axi4CrossbarFactory()
         axiCrossbar.addSlaves(
             ram.io.axi       -> (0x00000000L, 4 kB),
-            apbBridge.io.axi -> (0x10000000L,   1 MB)
+            apbBridge.io.axi -> (0x10000000L, 1 MB),
         )
 
         axiCrossbar.addConnections(
@@ -137,9 +139,12 @@ case class top() extends Component {
 
         axiCrossbar.build()
 
-        val ledReg = Apb3SlaveFactory(apbBridge.io.apb)
-            .createReadWrite(Bits(4 bits), 0x10000000L, 0)
+        val slave = Apb3SlaveFactory(apbBridge.io.apb)
+        
+        val ledReg = slave.createReadWrite(Bits(4 bits), 0x10000000L, 0)
         io.user_leds := ledReg
+
+        GeneratedController.installSlave(slave)
     }
   
     noIoPrefix()

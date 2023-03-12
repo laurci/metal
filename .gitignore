@@ -6,3 +6,5 @@
 *.bin
 *.v
 *.o
+
+target/
