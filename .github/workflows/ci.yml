@@ -9,8 +9,10 @@ jobs:
       - uses: olafurpg/setup-scala@v11
       - name: Setup GNU RiscV toolchain
         run:  sudo apt install -y gcc-riscv64-unknown-elf
-      - name: Compile rust source
-        run: cd demo/bare; rustup target add riscv32imac-unknown-none-elf; cargo build --release
+      - name: Add Rust RiscV target
+        run: cd demo/bare; rustup target add riscv32imac-unknown-none-elf
+      - name: Build test project
+        run: make demo-bare
       
       # - name: Compile
       #   run: sbt compile
