@@ -14,5 +14,3 @@ jobs:
       - name: Build test project
         run: make demo-bare
       
-      # - name: Compile
-      #   run: sbt compile
