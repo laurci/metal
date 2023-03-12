@@ -8,7 +8,7 @@ double tilt = 0;
 
 float filtered_output, est_spd;
 
-float sp = 5;
+float sp = 0;
 
 
 
@@ -45,9 +45,9 @@ void setup() {
   pid1.o_limit = 255.0;
 
 
-  pid2.kp = 0.01;
-  pid2.ki = 0.0;
-  pid2.kd = 0.0;
+  pid2.kp = 0.03;
+  pid2.ki = 0.8;
+  pid2.kd = 0.0;  //003;
   pid2.limit = 2.0;
   pid2.o_limit = 30.0;
 
@@ -61,13 +61,15 @@ void setup() {
 void loop() {
 
   get_angle(tilt);
+  // tilt -= 5.0;
   double op = 0;
   if (tilt < 30 && tilt > -30) {
 
-    op = pid1.compute(tilt + sp);
+    op = pid1.compute(tilt + sp + 4.2);
 
     filtered_output = filtered_output * alpha2 + op * (1.0 - alpha2);
 
+    sp = 0;
     sp = pid2.compute(filtered_output);
 
 
