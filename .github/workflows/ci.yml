@@ -1,0 +1,13 @@
+name: CI
+  on:
+    push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: olafurpg/setup-scala@v11
+      - name: Compile rust source
+        run: cd demo/empty; cargo build --release
+      # - name: Compile
+      #   run: sbt compile
