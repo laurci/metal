@@ -45,11 +45,11 @@ void setup() {
   pid1.o_limit = 255.0;
 
 
-  pid2.kp = 0.03;
+  pid2.kp = 0.018;
   pid2.ki = 0.8;
-  pid2.kd = 0.0;  //003;
-  pid2.limit = 2.0;
-  pid2.o_limit = 30.0;
+  // pid2.kd = 0.0002;
+  pid2.limit = 1.0;
+  pid2.o_limit = 10.0;
 
 
   Serial.begin(115200);

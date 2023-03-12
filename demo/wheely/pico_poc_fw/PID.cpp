@@ -26,9 +26,10 @@ float PID::compute(float err) {
     i = limit;
   if (i < -limit)
     i = -limit;
+  // if (i > -0.01 && i < 0.01)
+  //   i = 0.0;
 
-  float
-    out = p + i + d;
+  float out = p + i + d;
 
   if (out > o_limit)
     out = o_limit;
