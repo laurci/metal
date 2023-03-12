@@ -12,6 +12,6 @@ jobs:
       - name: Setup GNU RiscV toolchain
         run:  sudo apt install -y gcc-riscv64-unknown-elf
       - name: Compile rust source
-        run: cd demo/empty; cargo build --release
+        run: cd demo/bare; cargo build --release
       # - name: Compile
       #   run: sbt compile
