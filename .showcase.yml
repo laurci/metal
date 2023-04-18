@@ -1,0 +1,10 @@
+size: big
+description: | 
+  This project was built during the [Bucharest Hackathon 2023](https://thebucharesthackathon.com/) which we (me and my team Deadlock) ended up [winning](https://www.linkedin.com/feed/update/urn:li:activity:7041055436652851201/).
+  We wanted to empower users without Digital Hardware Design experience to easily build their own hardware (like accelerators, custom peripherals, high-performance signal processing, custom actuator drivers, etc) using the tools they already know.
+  The user defines a function and it annotates it with the `#[metal::teleport]` directive. The builder converts the function body into a hardware implementation (Spinal HDL and Verilog) and replaces it with the code needed to call it. The rest of the code is compiled to a RISC-V 32bit IMC binary. The generated hardware is combined with a RISC-V 32bit IMC soft-core and the resulting bitstream is loaded in the FPGA.
+tags:
+  - embedded
+  - low-level
+  - FPGA
+  - RISC-V
