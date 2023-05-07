@@ -1,10 +1,10 @@
 size: big
-description: | 
-  This project was built during the [Bucharest Hackathon 2023](https://thebucharesthackathon.com/) which we (me and my team Deadlock) ended up [winning](https://www.linkedin.com/feed/update/urn:li:activity:7041055436652851201/).
-
-  We wanted to empower users without Digital Hardware Design experience to easily build their own hardware (like accelerators, custom peripherals, high-performance signal processing, custom actuator drivers, etc) using the tools they already know.
+description: |
+  My team, Deadlock, and I built this project during the [Bucharest Hackathon 2023](https://thebucharesthackathon.com/), which [we won](https://www.linkedin.com/feed/update/urn:li:activity:7041055436652851201/). 
   
-  The user defines a function and it annotates it with the `#[metal::teleport]` directive. The builder converts the function body into a hardware implementation (Spinal HDL and Verilog) and replaces it with the code needed to call it. The rest of the code is compiled to a RISC-V 32bit IMC binary. The generated hardware is combined with a RISC-V 32bit IMC soft-core and the resulting bitstream is loaded in the FPGA.
+  Our goal was to allow users without Digital Hardware Design experience to easily create their own hardware, like accelerators, custom peripherals, high-performance signal processing, and custom actuator drivers. This project can speed up the iteration process from software to ASIC and provide cheaper access to educational products. 
+  
+  The user defines a function and it annotates it with the `#[metal::teleport]` directive. We used Rust's amazing meta-programming system to convert functions into hardware implementations using Scala code, which is later converted into Verilog using Spinal HDL. The hardware implementations are APB3 bus slaves and memory-mapped at known locations. We compiled the Rust code to the riscv32-imc target and linked it using a known memory map, then combined the generated hardware implementation with a standard RISCV 32 bits IMC softcore to generate the bitstream and load it into the FPGA, allowing the code to interact with hardware peripherals like normal memory.
 tags:
   - embedded
   - low-level
